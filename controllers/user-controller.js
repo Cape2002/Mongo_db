@@ -82,18 +82,18 @@ const updateUser=await UserModel.findOneAndUpdate({_id: id}, data ,{new:true})
  }
 
  exports.createNewUser=async (req,res)=>{
-    const {name, surname, email, subscriptionType, subscriptionDate}= req.body;
+    const {name, surname, email, issuedBook, subscriptionType, subscriptionDate}= req.body;
  
    const newUser= await UserModel.create({
-    name, surname, email, subscriptionType, subscriptionDate
+    name, surname, email, issuedBook, subscriptionType, subscriptionDate
    })
  
-    if(user){
-     return res.status(404).json({
-         success:false,
-         message :"User with given id exist"
-   } )
-    }
+  //   if(newUser){
+  //    return res.status(404).json({
+  //        success:false,
+  //        message :"User with given id exist"
+  //  } )
+  //   }
  
     // users.push({
     //  id, name, surname, email, subscriptionType, subscriptionDate
